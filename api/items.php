@@ -1,0 +1,2 @@
+<?php
+require_once __DIR__ . '/../includes/init.php';requireLogin();header('Content-Type: application/json; charset=utf-8');$q=trim((string)($_GET['q']??''));$s=db()->prepare('SELECT id,item_code,item_name,quantity,unit FROM items WHERE item_code LIKE :q1 OR item_name LIKE :q2 ORDER BY item_name LIMIT 20');$s->execute(['q1'=>"%$q%",'q2'=>"%$q%"]);echo json_encode($s->fetchAll(),JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR);

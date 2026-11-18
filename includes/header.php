@@ -1,0 +1,6 @@
+<?php
+$user = currentUser(); $flashMessage = takeFlash(); $pageTitle = $title ?? APP_NAME;
+?><!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title><?= e($pageTitle) ?> · <?= e(APP_NAME) ?></title><link rel="stylesheet" href="<?= e(url('assets/css/style.css')) ?>"></head><body>
+<header class="topbar"><a class="brand" href="<?= e(url($user ? ($user['role']==='admin'?'admin/dashboard.php':'user/dashboard.php') : 'login.php')) ?>"><span class="brand-mark">W</span><span><?= e(APP_NAME) ?></span></a><?php if ($user): ?><div class="profile"><span class="avatar"><?= e(strtoupper(substr($user['full_name'],0,1))) ?></span><span><b><?= e($user['full_name']) ?></b><small><?= e(ucfirst($user['role'])) ?></small></span></div><?php endif; ?></header>
+<?php if ($user): ?><div class="app-shell"><?php require __DIR__ . '/nav.php'; ?><main class="main-content"><div class="mobile-title"><?= e(APP_NAME) ?></div><?php if ($flashMessage): ?><div class="alert <?= e($flashMessage['type']) ?>" role="status"><?= e($flashMessage['message']) ?></div><?php endif; ?><?php else: ?><main class="auth-main"><?php if ($flashMessage): ?><div class="alert <?= e($flashMessage['type']) ?>" role="status"><?= e($flashMessage['message']) ?></div><?php endif; ?><?php endif; ?>
