@@ -1,9 +1,6 @@
 <?php
 declare(strict_types=1);
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 // Connect to the MySQL Server configured in MySQL Workbench (Workbench itself is the client).
 define('DB_HOST', '127.0.0.1');
 define('DB_PORT', 3306);
