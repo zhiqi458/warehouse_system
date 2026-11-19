@@ -8,5 +8,5 @@ define('DB_NAME', 'zhiqi_warehouse_management');
 define('DB_USER', 'synergy1_yenping');
 define('DB_PASS', 'R.zb0ZwEuGZ}*fW2'); // Set this to the password for the MySQL Server account above.
 // The current PHP server uses this project folder as its document root (http://localhost:8080/).
-define('BASE_PATH', '');
+define('BASE_PATH', 'warehouse_system/');
 define('APP_NAME', 'Warehouse Management System');
